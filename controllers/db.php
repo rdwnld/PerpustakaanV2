@@ -165,6 +165,7 @@ class perpustakaan
         if ($kelas == '' || $foto == '') {
             $query = $this->koneksi->query("UPDATE siswa SET nisn='$nisn',nama='$nama' WHERE siswa_id=$id");
         } else {
+            $move = move_uploaded_file($_FILES['foto']['tmp_name'], '../assets/images/' . $foto);
             $query = $this->koneksi->query("UPDATE siswa SET nisn='$nisn',nama='$nama',kelas='$kelas',foto='$foto' WHERE siswa_id=$id");
         }
 
