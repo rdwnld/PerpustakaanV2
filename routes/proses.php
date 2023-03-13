@@ -155,3 +155,7 @@ if (@$_POST['cari_nisn']) {
 $perpus->cari_nisn($nisn);
 
 // PROSES PEMINJAMAN END
+
+session_start();
+$nisn = $_SESSION['nis'];
+echo $nisn;

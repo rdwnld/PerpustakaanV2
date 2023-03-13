@@ -28,7 +28,7 @@ class perpustakaan
             $_SESSION['login'] = 1;
             $_SESSION['username'] = $data->username;
             $_SESSION['level'] = $data->level;
-            $_SESSION['nis'] = $data->nisn;
+            $_SESSION['nis'] = $data->nis;
 
             header("location:../dashboard.php");
         } else {
@@ -151,9 +151,9 @@ class perpustakaan
             }
 
             $query = $this->koneksi->query("INSERT INTO siswa VALUES(null,'$nisn','$nama','$kelas','$foto')");
-            $query = $this->koneksi->query("INSERT INTO users VALUES(null,'$nisn',md5('$nisn'),'Siswa','$nisn')");
 
             if ($query) {
+                $query = $this->koneksi->query("INSERT INTO users VALUES(null,'$nisn',md5('$nisn'),'Siswa','$nisn')");
                 session_start();
                 $_SESSION['success'] = "Siswa berhasil di tambah";
                 header('location:../dashboard.php?pages=siswa');
@@ -322,7 +322,9 @@ class perpustakaan
 
     public function cari_nisn($nisn)
     {
-        header("location:../dashboard.php?pages=peminjaman&act=tambah&nisn=$nisn");
+        if ($nisn) {
+            header("location:../dashboard.php?pages=peminjaman&act=tambah&nisn=$nisn");
+        }
     }
 
     public function jumlah_peminjam()
@@ -336,6 +338,7 @@ class perpustakaan
 
 
 };
+
 
 
 

@@ -11,10 +11,14 @@ $koneksi = mysqli_connect('localhost', 'root', '', 'perpustakaan_v2');
     </tr>
     <?php
     @session_start();
-    $nisn = $_SESSION['nis'];
     $no = 1;
-    $query = mysqli_query($koneksi, "SELECT * FROM peminjaman 
-    inner join buku on buku.buku_id = peminjaman.buku_id WHERE nisn='$nisn'");
+    $nisn = $_SESSION['nis'];
+    echo $nisn;
+
+    $query = mysqli_query($koneksi, "SELECT * FROM peminjaman
+    inner join buku on buku.buku_id = peminjaman.buku_id 
+    WHERE nisn='$nisn'");
+
     while ($ps = mysqli_fetch_array($query)) {
     ?>
         <tr>
