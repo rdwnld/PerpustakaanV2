@@ -151,8 +151,9 @@ if (@$_POST['simpan_peminjaman']) {
 
 if (@$_POST['cari_nisn']) {
     $nisn = $_POST['nisn'];
+
+    $perpus->cari_nisn($nisn);
 }
-$perpus->cari_nisn($nisn);
 
 // PROSES PEMINJAMAN END
 
