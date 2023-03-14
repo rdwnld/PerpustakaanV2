@@ -4,7 +4,7 @@
     <div class="col-8">
 
         <table class="table border shadow">
-            <tr>
+            <tr class="bg-primary text-white">
                 <td>No</td>
                 <td>No Peminjaman</td>
                 <td>Judul Buku</td>
